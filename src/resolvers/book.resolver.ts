@@ -1,4 +1,4 @@
-import { Mutation, Query, Resolver, Arg, InputType, Field, UseMiddleware, Ctx } from "type-graphql"
+import { Mutation, Query, Resolver, Arg, InputType, Field, UseMiddleware } from "type-graphql"
 import { Book } from "../entity/book.entity";
 import {Author} from "../entity/author.entity"
 import { getRepository, Repository } from "typeorm";
@@ -37,7 +37,7 @@ export class BookResolver {
 
     @Mutation(() => Book)
     async createAuthor(
-        @Arg("input", () => BookInput) input: BookInput, @Ctx() context:IContext) {
+        @Arg("input", () => BookInput) input: BookInput) {
         try {
             const author: Author| undefined = await this.authorRepository.findOne(input.author);
             
