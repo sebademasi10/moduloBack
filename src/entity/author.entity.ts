@@ -10,15 +10,15 @@ export class Author {
     @PrimaryGeneratedColumn()
     id!: number
 
-    @Field(()=>String)
+    @Field(() => String)
     @Column()
     fullname!: string
 
-    @Field({nullable:true})
-    @OneToMany(() => Book, book => book.author, {nullable: true})
+    @Field(() => Book, { nullable: true })
+    @OneToMany(() => Book, book => book.author, { nullable: true })
     books!: Book
 
-    @Field (()=>String)
+    @Field(() => String)
     @CreateDateColumn({ type: "timestamp" })
     createdAt!: string
 
